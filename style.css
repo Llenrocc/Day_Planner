@@ -1,0 +1,23 @@
+.jumbotron {
+    background-image: url(Assets/IMG_0443.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.display-3 {
+    font-family: 'Lakki Reddy', cursive;
+}
+
+.lead {
+    font-family: 'Redressed', cursive;
+    font-size: 30px;
+}
+
+.body {
+    background-image: url(Assets/home-office-336373_1280.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
