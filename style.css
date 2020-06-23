@@ -67,21 +67,21 @@ body {
     padding-top: 10px;
   }
   
-  /* Weekdays (Mon-Sun) */
+  /* Weekdays (Mon-Sun) 
   .weekdays {
     margin: 0;
     padding: 10px 0;
     background-color:#ddd;
-  }
+  } */
   
-  .weekdays li {
+  /* .weekdays li { 
     display: inline-block;
     width: 13.6%;
     color: #666;
     text-align: center;
   }
   
-  /* Days (1-31) */
+  /* Days (1-31) 
   .days {
     padding: 10px 0;
     background: #eee;
@@ -97,7 +97,7 @@ body {
     font-size:12px;
     color: #777;
   }
-  
+  */
   /* Highlight the "current" day */
   .days li .active {
     padding: 5px;
