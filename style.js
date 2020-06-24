@@ -2,7 +2,7 @@
 
 var $currentDay = $("#currentDay");
 var $schedule = $(".schedule");
-var $timeBlocks = $(".time-block");
+var $timeBlock = $(".time-block");
 
 var toDos = [];
 
@@ -15,7 +15,14 @@ var currentHour = moment().format("H");
 
 function initializeSchedule() {
 
-// added a "for each" for the time-blocks
-    $timeBlocks.each
-
+// added a "for each" for the time-blocks, and variables for those blocks. Setting to do hour to same as data hour.
+    $timeBlock.each(function() {
+        var $thisBlock = $(this);
+        var $thisBlockHr = pareInt($thisBlock.attr("data-hour"));
+        var toDosObj = {
+            hour: $thisBlockHr,
+            text: "",
+        }
+        toDos.push(toDosObj); //push toDosObj to the array
+    });
 }
