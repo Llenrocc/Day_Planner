@@ -26,3 +26,6 @@ function initializeSchedule() {
         toDos.push(toDosObj); //push toDosObj to the array
     });
 }
+
+// We must save array to local storage 
+localStorage.setItem("toDos", JSON.stringify(toDos));
