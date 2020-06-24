@@ -82,22 +82,25 @@ textarea{
     color: white;
     padding-top: 10px;
   }
-  
+ 
+/* Past time slots will appear grey */  
   .past {
     background-color: #d3d3d3;
     color: white;
   }
-  
+ 
+/* Present time slots will appear in red */  
   .present {
     background-color: #ff6961;
     color: white;
   }
-  
+/* Future events appear in green */  
   .future {
     background-color: #77dd77;
     color: white;
   }
-  
+
+/* Color, position, and size of save button */  
   .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
@@ -105,8 +108,8 @@ textarea{
     background-color: dodgerblue;
     color: white;
   }
-  
+/* Mouse pointer hover over save btn, it grows in size, turns black */
   .saveBtn i:hover {
-    font-size: 20px;
-    transition: all .3s ease-in-out;
+    font-size: 25px;
+    transition: all .2s ease-in-out;
   }
