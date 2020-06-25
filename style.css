@@ -39,7 +39,6 @@ body {
     font-family: 'Redressed', cursive;
     font-size: 30px;
 }
-
 /* Text area where user can write in events for that time block */
 textarea{
     background: transparent;
@@ -76,7 +75,7 @@ textarea{
     border-top: 2px solid white;;
   }
  
-/* Background for time blocks - Now transparent */  
+/* Background for time blocks  */  
   .hour {
     background: transparent;
     color: white;
