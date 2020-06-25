@@ -76,9 +76,9 @@ function saveHandler() {
     var hourToUpdate = $(this).parent().attr("data-hour");
     var itemToAdd = (($(this).parent()).children("textarea")).val();
 
-    for (var j = 0; j < toDos.length; j++) {                // see the item that we need to update according to the hour of the button click
-        if (toDos[j].hour == hourToUpdate) {
-            toDos[j].text = itemToAdd;                      // text is set to what ever was added to the text area 
+    for (var i = 0; i < toDos.length; i++) {                // see the item that we need to update according to the hour of the button click
+        if (toDos[i].hour == hourToUpdate) {
+            toDos[i].text = itemToAdd;                      // text is set to what ever was added to the text area 
         }
     }
     localStorage.setItem("toDos", JSON.stringify(toDos));   // Save toDos text to local storage. Convert object to string. Render the schedule

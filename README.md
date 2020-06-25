@@ -8,6 +8,6 @@ We are to create an interactive, responsive application for a work day planner. 
 - Text area to hold input
 - Save button (clicking on the save button will store the time and the user input in local storage)
 
-The application is to display the current day, and each hour should be color coded to determine whether the time is in the past, present, or future. 
+The application is to display the current day, and each hour should be color coded to determine whether the time is in the past, present, or future.  
 
-I used free stock office photos from Google for jumbotron and body image, moment.js, and google to help me through this project. 
+I used free stock office photos from Google for jumbotron and body image, moment.js, and google to help me through this project.  
