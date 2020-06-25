@@ -28,4 +28,23 @@ function initializeSchedule() {
 }
 
 // We must save array to local storage 
+
 localStorage.setItem("toDos", JSON.stringify(toDos));
+
+// Associating the time-block colors depending on the time of day
+
+function setUpTimeBlocks() {
+    $timeBlocks.each(function() {
+        var $thisBlock = $(this); // (this) refers to global scope - 
+        var $thisBlock = parseInt($thisBlock.attr("data-hour")); // coerce thisBlock string back to a number - add attr
+
+// style the time blocks with grey, red, or green depending on time
+        
+        if (thisBlockHr === currentHour) {                  // this is true - block hour equals current hour
+            $thisBlock.addClass("present").removeClass("past future");
+        }
+        if (thisBlockHr < currentHour) {                    // if current hour is greater than block hour,
+
+        }
+    }
+}
