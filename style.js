@@ -84,3 +84,15 @@ function saveHandler() {
     localStorage.setItem("toDos", JSON.stringify(toDos));   // Save toDos text to local storage. Convert object to string. Render the schedule
     renderSchedule();
 }
+
+$(document).ready(function() {                              // No javascript until the html loads
+
+    setUpTimeBlocks();                                      // Time block format depending on time
+    if(!localStorage.getItem("toDos")) {                    // if there's no to dos in the local storage, initialize the array of objects
+    initializeSchedule();
+    }
+    
+    $currentDay.text(currentDate);                          // Display the Current Date
+    renderSchedule();                                       // Render from Local Storage
+    $scheduleArea.on("click", "button", saveHandler);       // save a toDo item when save button is clicked
+    });
