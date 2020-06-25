@@ -1,10 +1,10 @@
 // Creating my variables
 
 var $currentDay = $("#currentDay");
-var $schedule = $(".schedule");
 var $timeBlock = $(".time-block");
+var $schedule = $(".schedule");
 
-var toDos = [];
+var toDoItems = [];
 
 // format for current date and hour using moment.js
 
@@ -18,35 +18,32 @@ function initializeSchedule() {
 // added a "for each" for the time-blocks, and variables for those blocks. Setting to do hour to same as data hour.
     $timeBlock.each(function() {
         var $thisBlock = $(this);
-        var $thisBlockHr = pareInt($thisBlock.attr("data-hour"));
-        var toDosObj = {
+        var $thisBlockHr = parseInt($thisBlock.attr("data-hour"));
+        var toDoItemsObj = {
             hour: $thisBlockHr,
             text: "",
         }
-        toDos.push(toDosObj); //push toDosObj to the array
+        toDoItems.push(toDoItemsObj); //push toDosObj to the array
     });
+    localStorage.setItem("toDos", JSON.stringify(toDoItems));          // save array to local storage
 }
-
-// We must save array to local storage 
-
-localStorage.setItem("toDos", JSON.stringify(toDos));
 
 // Associating the time-block colors depending on the time of day
 
 function setUpTimeBlocks() {
     $timeBlocks.each(function() {
-        var $thisBlock = $(this); // (this) refers to global scope - 
-        var $thisBlock = parseInt($thisBlock.attr("data-hour")); // coerce thisBlock string back to a number - add attr
+        var $thisBlock = $(this);                                   // (this) refers to global scope - 
+        var $thisBlock = parseInt($thisBlock.attr("data-hour"));    // coerce thisBlock string back to a number - add attr
 
 // style the time blocks with grey, red, or green depending on time
         
-        if (thisBlockHr === currentHour) {                  // this is true - block hour equals current hour
-            $thisBlock.addClass("present").removeClass("past future");
+        if (thisBlockHr === currentHour) {                          // this is true - block hour equals current hour
+            $thisBlock.addClass("present").removeClass("past");
         }
-        if (thisBlockHr < currentHour) {                    // if current hour is greater than block hour, add past class and remove present/future
-            $thisBlock.addClass("past").removeClass("present future");
+        if (thisBlockHr < currentHour) {                            // if current hour is greater than block hour, add past class and remove present/future
+            $thisBlock.addClass("past").removeClass("present");
         }
-        if (thisBlockHr > currentHour) {                    // if this block hr is greater than current hour - add future class, remove past/present
+        if (thisBlockHr > currentHour) {                             // if this block hr is greater than current hour - add future class, remove past/present
             $thisBlock.addClass("future").removeClass("past present");
         }
     });
@@ -55,18 +52,18 @@ function setUpTimeBlocks() {
 // Adding render function to run schedule
 
 function renderSchedule() {
-    toDos = localStorage.getItem("toDos");                  // Save toDos to local storage. Coerce toDos string to number
-    toDos = JSON.parse("toDos");
+    toDoItems = localStorage.getItem("toDos");                  // Save toDos to local storage. Coerce toDos string to number
+    toDoItems = JSON.parse(toDoItems);
 
 // loop through the away, assign text to the time-block. Data hour has to equal hour.
 
-for (var i = 0; i < toDos.length, i++) {                    
-    var itemHour = toDos[i].hour;
-    var itemText = toDos[i]. text;
+for (var i = 0; i < toDoItems.length; i++) {                    
+    var itemHour = toDoItems[i].hour;
+    var itemText = toDoItems[i]. text;
 
     $("[data-hour=" + itemHour + "]").children("textarea").val(itemText);    // make variable. data-hour = hour.
 }
-//console.log(toDos);
+
 }
 
 // create function for save handler when save button pushed. Create variables - hour to update and item to add to text area
@@ -76,7 +73,7 @@ function saveHandler() {
     var hourToUpdate = $(this).parent().attr("data-hour");
     var itemToAdd = (($(this).parent()).children("textarea")).val();
 
-    for (var i = 0; i < toDos.length; i++) {                // see the item that we need to update according to the hour of the button click
+    for (var i = 0; i < toDoItems.length; i++) {                // see the item that we need to update according to the hour of the button click
         if (toDos[i].hour == hourToUpdate) {
             toDos[i].text = itemToAdd;                      // text is set to what ever was added to the text area 
         }
