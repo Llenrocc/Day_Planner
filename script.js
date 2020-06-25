@@ -1,7 +1,7 @@
 // Creating my variables
 
-var $currentDay = $("#currentDay");
-var $timeBlock = $(".time-block");
+var $currentDay = $("#currentDay")
+var $timeBlocks = $(".time-block");
 var $schedule = $(".schedule");
 
 var toDoItems = [];
@@ -16,16 +16,16 @@ var currentHour = moment().format("H");
 function initializeSchedule() {
 
 // added a "for each" for the time-blocks, and variables for those blocks. Setting to do hour to same as data hour.
-    $timeBlock.each(function() {
+    $timeBlocks.each(function() {
         var $thisBlock = $(this);
         var $thisBlockHr = parseInt($thisBlock.attr("data-hour"));
-        var toDoItemsObj = {
-            hour: $thisBlockHr,
+        var toDoObj = {
+            hour: thisBlockHr,
             text: "",
         }
-        toDoItems.push(toDoItemsObj); //push toDosObj to the array
+        toDoItems.push(toDoObj); //push toDosObj to the array
     });
-    localStorage.setItem("toDos", JSON.stringify(toDoItems));          // save array to local storage
+    localStorage.setItem("todos", JSON.stringify(toDoItems));          // save array to local storage
 }
 
 // Associating the time-block colors depending on the time of day
@@ -33,11 +33,11 @@ function initializeSchedule() {
 function setUpTimeBlocks() {
     $timeBlocks.each(function() {
         var $thisBlock = $(this);                                   // (this) refers to global scope - 
-        var $thisBlock = parseInt($thisBlock.attr("data-hour"));    // coerce thisBlock string back to a number - add attr
+        var thisBlockHr = parseInt($thisBlock.attr("data-hour"));    // coerce thisBlock string back to a number - add attr
 
 // style the time blocks with grey, red, or green depending on time
         
-        if (thisBlockHr === currentHour) {                          // this is true - block hour equals current hour
+        if (thisBlockHr == currentHour) {                          // this is true - block hour equals current hour
             $thisBlock.addClass("present").removeClass("past");
         }
         if (thisBlockHr < currentHour) {                            // if current hour is greater than block hour, add past class and remove present/future
@@ -52,14 +52,14 @@ function setUpTimeBlocks() {
 // Adding render function to run schedule
 
 function renderSchedule() {
-    toDoItems = localStorage.getItem("toDos");                  // Save toDos to local storage. Coerce toDos string to number
+    toDoItems = localStorage.getItem("todos");                  // Save toDos to local storage. Coerce toDos string to number
     toDoItems = JSON.parse(toDoItems);
 
 // loop through the away, assign text to the time-block. Data hour has to equal hour.
 
 for (var i = 0; i < toDoItems.length; i++) {                    
     var itemHour = toDoItems[i].hour;
-    var itemText = toDoItems[i]. text;
+    var itemText = toDoItems[i].text;
 
     $("[data-hour=" + itemHour + "]").children("textarea").val(itemText);    // make variable. data-hour = hour.
 }
@@ -78,14 +78,14 @@ function saveHandler() {
             toDos[i].text = itemToAdd;                      // text is set to what ever was added to the text area 
         }
     }
-    localStorage.setItem("toDos", JSON.stringify(toDos));   // Save toDos text to local storage. Convert object to string. Render the schedule
+    localStorage.setItem("todos", JSON.stringify(toDoItems));   // Save toDos text to local storage. Convert object to string. Render the schedule
     renderSchedule();
 }
 
 $(document).ready(function() {                              // No javascript until the html loads
 
     setUpTimeBlocks();                                      // Time block format depending on time
-    if(!localStorage.getItem("toDos")) {                    // if there's no to dos in the local storage, initialize the array of objects
+    if(!localStorage.getItem("todos")) {                    // if there's no to dos in the local storage, initialize the array of objects
     initializeSchedule();
     }
     
