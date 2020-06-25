@@ -79,13 +79,13 @@ textarea{
   .row {
     white-space: pre-wrap;
     height: 80px;
-    border-top: 2px solid white;;
+    border-top: 2px solid black;;
   }
  
 /* Background for time blocks  */  
   .hour {
     background: transparent;
-    color: white;
+    color: black;
     padding-top: 10px;
   }
  
