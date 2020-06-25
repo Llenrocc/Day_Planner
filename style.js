@@ -43,8 +43,11 @@ function setUpTimeBlocks() {
         if (thisBlockHr === currentHour) {                  // this is true - block hour equals current hour
             $thisBlock.addClass("present").removeClass("past future");
         }
-        if (thisBlockHr < currentHour) {                    // if current hour is greater than block hour,
-
+        if (thisBlockHr < currentHour) {                    // if current hour is greater than block hour, add past class and remove present/future
+            $thisBlock.addClass("past").removeClass("present future");
         }
-    }
+        if (thisBlockHr > currentHour) {                    // if this block hr is greater than current hour - add future class, remove past/present
+            $thisBlock.addClass("future").removeClass("past present");
+        }
+    });
 }
