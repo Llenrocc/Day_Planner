@@ -51,3 +51,21 @@ function setUpTimeBlocks() {
         }
     });
 }
+
+// Adding render function to run schedule
+
+function renderSchedule() {
+    toDos = localStorage.getItem("toDos");                  // Save toDos to local storage. Coerce toDos string to number
+    toDos = JSON.parse("toDos");
+
+// loop through the away, assign text to the time-block. Data hour has to equal hour.
+
+for (var i = 0; i < toDos.length, i++) {                    
+    var itemHour = toDos[i].hour;
+    var itemText = toDos[i]. text;
+
+    $("[data-hour=" + itemHour + "]").children("textarea").val(itemText);    // make variable. data-hour = hour.
+}
+//console.log(toDos);
+}
+
