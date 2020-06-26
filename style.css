@@ -32,7 +32,7 @@ body {
 .lead {
     display: block;
     position: absolute;
-    top: 15%;
+    top: 15rem;
     left: 50%;
     text-align: center;
     transform: translate(-50%, -50%);
@@ -40,10 +40,14 @@ body {
     font-size: 30px;
 }
 
+#currentDay {
+    color: black;
+}
+
 /* Container holding the time blocks */
 
 .container {
-    padding-top: 7rem;
+    padding-top: 5rem;
 }
 
 /* Text area where user can write in events for that time block */
