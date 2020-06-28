@@ -13,4 +13,4 @@ We are to create an interactive, responsive application for a work day planner. 
 
 The application is to display the current day, and each hour should be color coded to determine whether the time is in the past, present, or future.  
 
-I used free stock office photos from "https://www.pexels.com/search/office/". 
+I used free stock office photos from "https://www.pexels.com/search/office/". I was able to get the current date to appear after this screenshot was taken. However I wanted the red of the 5pm time block to be visible. 
