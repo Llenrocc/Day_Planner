@@ -8,7 +8,7 @@ var toDoItems = [];
 
 // format for current date and hour using moment.js
 
-var currentDate = moment().format("dddd, MMM Do");
+var currentDate = moment().format('MMM Do YYYY');
 var currentHour = moment().format("H");
 
 // Added function - to set up array
