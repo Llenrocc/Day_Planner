@@ -1,6 +1,6 @@
 # Day_Planner
 
-<img width="1243" alt="Daily Planner Screenshot" src="https://user-images.githubusercontent.com/62081345/85958333-cc13ba80-b962-11ea-992c-8ecdffa98039.png">
+<img width="1258" alt="Daily Planner Screenshot" src="https://user-images.githubusercontent.com/62081345/85960082-b4daca00-b96e-11ea-9607-7857a6b31061.png">
 
 
 Description:
