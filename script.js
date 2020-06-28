@@ -2,7 +2,7 @@
 
 var $currentDay = $("#currentDay");
 var $timeBlocks = $(".time-block");
-var $schedule = $(".schedule");
+var $scheduleArea = $(".schedule");
 
 var toDoItems = [];
 
@@ -25,7 +25,7 @@ function initializeSchedule() {
         }
         toDoItems.push(toDoObj); //push toDosObj to the array
     });
-    localStorage.setItem("todos", JSON.stringify(toDoItems));          // save array to local storage
+    localStorage.setItem("toDos", JSON.stringify(toDoItems));          // save array to local storage
 }
 
 // Associating the time-block colors depending on the time of day
@@ -38,10 +38,10 @@ function setUpTimeBlocks() {
 // style the time blocks with grey, red, or green depending on time
         
         if (thisBlockHr == currentHour) {                          // this is true - block hour equals current hour
-            $thisBlock.addClass("present").removeClass("past");
+            $thisBlock.addClass("present").removeClass("past future");
         }
         if (thisBlockHr < currentHour) {                            // if current hour is greater than block hour, add past class and remove present/future
-            $thisBlock.addClass("past").removeClass("present");
+            $thisBlock.addClass("past").removeClass("present future");
         }
         if (thisBlockHr > currentHour) {                             // if this block hr is greater than current hour - add future class, remove past/present
             $thisBlock.addClass("future").removeClass("past present");
@@ -52,7 +52,7 @@ function setUpTimeBlocks() {
 // Adding render function to run schedule
 
 function renderSchedule() {
-    toDoItems = localStorage.getItem("todos");                  // Save toDos to local storage. Coerce toDos string to number
+    toDoItems = localStorage.getItem("toDos");                  // Save toDos to local storage. Coerce toDos string to number
     toDoItems = JSON.parse(toDoItems);
 
 // loop through the away, assign text to the time-block. Data hour has to equal hour.
@@ -73,19 +73,19 @@ function saveHandler() {
     var hourToUpdate = $(this).parent().attr("data-hour");
     var itemToAdd = (($(this).parent()).children("textarea")).val();
 
-    for (var i = 0; i < toDoItems.length; i++) {                // see the item that we need to update according to the hour of the button click
-        if (toDos[i].hour == hourToUpdate) {
-            toDos[i].text = itemToAdd;                      // text is set to what ever was added to the text area 
+    for (var j = 0; i < toDoItems.length; j++) {                // see the item that we need to update according to the hour of the button click
+        if (toDos[j].hour == hourToUpdate) {
+            toDos[j].text = itemToAdd;                      // text is set to what ever was added to the text area 
         }
     }
-    localStorage.setItem("todos", JSON.stringify(toDoItems));   // Save toDos text to local storage. Convert object to string. Render the schedule
+    localStorage.setItem("toDos", JSON.stringify(toDoItems));   // Save toDos text to local storage. Convert object to string. Render the schedule
     renderSchedule();
 }
 
 $(document).ready(function() {                              // No javascript until the html loads
 
     setUpTimeBlocks();                                      // Time block format depending on time
-    if(!localStorage.getItem("todos")) {                    // if there's no to dos in the local storage, initialize the array of objects
+    if(!localStorage.getItem("toDos")) {                    // if there's no to dos in the local storage, initialize the array of objects
     initializeSchedule();
     }
     
