@@ -1,6 +1,6 @@
 // Creating my variables
 
-var $currentDay = $("#currentDay")
+var $currentDay = $("#currentDay");
 var $timeBlocks = $(".time-block");
 var $schedule = $(".schedule");
 
@@ -18,7 +18,7 @@ function initializeSchedule() {
 // added a "for each" for the time-blocks, and variables for those blocks. Setting to do hour to same as data hour.
     $timeBlocks.each(function() {
         var $thisBlock = $(this);
-        var $thisBlockHr = parseInt($thisBlock.attr("data-hour"));
+        var thisBlockHr = parseInt($thisBlock.attr("data-hour"));
         var toDoObj = {
             hour: thisBlockHr,
             text: "",
