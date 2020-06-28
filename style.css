@@ -40,14 +40,11 @@ body {
     font-size: 30px;
 }
 
-#currentDay {
-    color: black;
-}
 
 /* Container holding the time blocks */
 
 .container {
-    padding-top: 5rem;
+    padding-top: 7rem;
 }
 
 /* Text area where user can write in events for that time block */

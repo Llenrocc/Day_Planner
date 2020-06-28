@@ -1,5 +1,8 @@
 # Day_Planner
 
+<img width="1243" alt="Daily Planner Screenshot" src="https://user-images.githubusercontent.com/62081345/85958333-cc13ba80-b962-11ea-992c-8ecdffa98039.png">
+
+
 Description:
 
 We are to create an interactive, responsive application for a work day planner. The planner is to be supported by moment.js, as well as using local storage to save specific events throughout the day. The app should display standard business hours (9am to 5pm). Each time slot should represent one hour and contain the following:
